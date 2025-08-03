@@ -19,8 +19,20 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        var character = _context.Characters.ToList();
-        return View(character);
+        var heroList = _context.Characters.
+            Where(c => c.Category == "Hero").
+            ToList();
+        var villainList = _context.Characters.
+            Where(c => c.Category == "Villain").
+            ToList();
+
+        var viewModel = new ViewModel
+        {
+            Heroes = heroList,
+            Villains = villainList
+        };
+
+        return View(viewModel);
     }
 
     public IActionResult Privacy()

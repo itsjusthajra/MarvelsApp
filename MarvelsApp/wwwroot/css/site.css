@@ -96,3 +96,10 @@ body {
 table {
     color: black;
 }
+
+.card:hover{
+    cursor:pointer;
+    background-color:black;
+    color:white;
+    border:3px solid blue;
+}
