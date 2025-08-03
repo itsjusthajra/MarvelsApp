@@ -170,6 +170,7 @@ namespace MarvelsApp.Controllers
                 .Where(c => c.Name.Contains(query))
                 .ToList();
 
+            ViewBag.SearchQuery = query;
             return View(results);
         }
     }

@@ -35,6 +35,18 @@ public class HomeController : Controller
         return View(viewModel);
     }
 
+    public IActionResult Search(string query)
+    {
+        if (string.IsNullOrEmpty(query))
+            return RedirectToAction("Index", "Home");
+
+        var results = _context.Characters
+            .Where(c => c.Name.Contains(query))
+            .ToList();
+        ViewBag.SearchQuery = query;
+        return View(results);
+    }
+
     public IActionResult Privacy()
     {
         return View();

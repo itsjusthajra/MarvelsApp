@@ -1,6 +1,7 @@
 ﻿@model List<Character>
 
-@{
+@{  
+    Layout = "_LayoutCharacters";
     ViewData["Title"] = "Characters";
 }
 
@@ -13,7 +14,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th scope="col"></th>
+            <th scope="col"><span style="visibility: hidden;">Images</span></th>
             <th scope="col">Name</th>
             <th scope="col">Real Name</th>
             <th scope="col">Alias</th>
@@ -31,7 +32,7 @@
         @foreach (var character in Model)
         {
             <tr>
-                <th scope="row"><img class="img-thumbnail" src="/images/@character.ImageUrl" width=100 /></th>
+                <th scope="row"><img class="img-thumbnail table-img-css" src="/images/@character.ImageUrl" width=100 /></th>
                 <td>@character.Name</td>
                 <td>@character.RealName</td>
                 <td>@character.Alias</td>

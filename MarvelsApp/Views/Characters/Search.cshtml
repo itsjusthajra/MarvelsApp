@@ -4,7 +4,7 @@
     ViewData["Title"] = "Characters";
 }
 
-<h1>Search Results</h1>
+<div class="h3 mt-4">Search Results for "<strong>@ViewBag.SearchQuery</strong>" </div>
 @if (!Model.Any())
 {
     <p>No characters found.</p>
