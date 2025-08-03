@@ -43,7 +43,19 @@ body {
     width: auto;
 }
 
-.createbtn-css {
+.add-btn{
+    color:white;
+    background-color:black;
+}
+.add-btn:hover {
+    color: white;
+    background-color: grey;
+}
+
+.img-thumbnail{
+    width:100px;
+}
+/*.createbtn-css {
     color: white;
     text-decoration: none;
 }
@@ -58,7 +70,7 @@ body {
 .createlink-css:active {
     color: white;
     text-decoration: none;
-}
+}*/
 
 .card-img-css {
     border-radius: inherit;
@@ -97,9 +109,85 @@ table {
     color: black;
 }
 
-.card:hover{
+/*.card:hover{
     cursor:pointer;
     background-color:black;
     color:white;
     border:3px solid blue;
+}*/
+
+.card {
+    position: relative;
+    overflow: hidden;
+/*    border: 2px solid #0077ff;
+    border-radius: 12px;
+    width: 300px;
+    transition: color 0.4s ease;
+    cursor: pointer;
+    color: #000;*/
+}
+
+    .card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color : black;
+/*        background: #0077ff;*/
+        z-index: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: transform 0.3s ease;
+        color:white;
+    }
+
+    .card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .card img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.4s ease;
+        z-index: 1;
+        position: relative;
+    }
+
+    .card:hover img {
+        transform: scale(1.05);
+    }
+
+    .card .content {
+        position: relative;
+        padding: 16px;
+        z-index: 1;
+        background: transparent;
+        transition: color 0.4s ease;
+    }
+
+    .card:hover .card-body{
+        color: white;
+        z-index: 1;
+    }
+    .card:hover .card-subtitle {
+        color: darkred !important;
+    }
+
+.delete-btn {
+    background-color: rgba(185, 2, 4, 1);
+    border: rgba(185, 2, 4, 1);;
+}
+
+.edit-btn {
+    background-color: black;
+    border:black;
+}
+
+.delete-btn:hover {
+    background-color: darkred;
+    border: darkred;
+}
+
+.edit-btn:hover {
+    background-color: grey;
+    border:grey;
 }

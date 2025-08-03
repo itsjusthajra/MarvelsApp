@@ -7,7 +7,7 @@
 <h1>Characters</h1>
 
 <p>
-    <a asp-action="Add" class="btn createbtn-css">Add New</a>
+    <a asp-action="Add" class="btn add-btn">Add New</a>
 </p>
 
 <table class="table table-striped">
@@ -31,7 +31,7 @@
         @foreach (var character in Model)
         {
             <tr>
-                <th scope="row"><img class="img-thumbnail" src="images/@character.ImageUrl" width=100 /></th>
+                <th scope="row"><img class="img-thumbnail" src="/images/@character.ImageUrl" width=100 /></th>
                 <td>@character.Name</td>
                 <td>@character.RealName</td>
                 <td>@character.Alias</td>
@@ -42,8 +42,8 @@
                 <td>@character.FirstAppearance</td>
                 <td>@character.Creator</td>
                 <td style="white-space: nowrap">
-                    <a class="btn btn-primary btn-sm" asp-controller="Characters" asp-action="Edit" asp-route-id="@character.Id">Edit</a>
-                    <a class="btn btn-danger btn-sm" asp-controller="Characters" asp-action="Delete" asp-route-id="@character.Id" onclick="return confirm(`Are you sure?`)">Delete</a>
+                    <a class="btn btn-primary edit-btn btn-sm" asp-controller="Characters" asp-action="Edit" asp-route-id="@character.Id">Edit</a>
+                    <a class="btn btn-danger delete-btn btn-sm" asp-controller="Characters" asp-action="Delete" asp-route-id="@character.Id" onclick="return confirm(`Are you sure?`)">Delete</a>
                 </td>
             </tr>
         }

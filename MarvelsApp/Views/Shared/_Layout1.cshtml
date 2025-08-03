@@ -1,4 +1,8 @@
-﻿<!doctype html>
+﻿@{
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+}
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -18,13 +22,13 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Home" asp-action="Index">
+                        <a class="nav-link @(currentController == "Home" && currentAction == "Index" ? "active" : "")" asp-controller="Home" asp-action="Index">
                             Home
                             <span class="visually-hidden">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Characters" asp-action="Index">Characters</a>
+                        <a class="nav-link @(currentController == "Characters" && currentAction == "Index" ? "active" : "")" asp-controller="Characters" asp-action="Index">Characters</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Teams" asp-action="Index">Teams</a>
@@ -32,8 +36,8 @@
 
 
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-sm-2 search-css" type="search" placeholder="Search">
+                <form asp-controller="Characters" asp-action="Search" method="get" class=" d-flex ">
+                    <input class="form-control me-sm-2 search-css" type="search" placeholder="Search characters" name="query" />
                     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
