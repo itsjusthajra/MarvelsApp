@@ -1,0 +1,52 @@
+﻿@model List<Character>
+
+@{
+    ViewData["Title"] = "Characters";
+}
+
+<h1>Characters</h1>
+
+<p>
+    <a asp-action="Add" class="btn createbtn-css">Add New</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Name</th>
+            <th scope="col">Real Name</th>
+            <th scope="col">Alias</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Category</th>
+            <th scope="col">Species</th>
+            <th scope="col">Origin</th>
+            <th scope="col">First Appearance</th>
+            <th scope="col">Creator</th>
+            <th scope="col">Action</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var character in Model)
+        {
+            <tr>
+                <th scope="row"><img class="img-thumbnail" src="images/@character.ImageUrl" width=100 /></th>
+                <td>@character.Name</td>
+                <td>@character.RealName</td>
+                <td>@character.Alias</td>
+                <td>@character.Gender</td>
+                <td>@character.Category</td>
+                <td>@character.Species</td>
+                <td>@character.Origin</td>
+                <td>@character.FirstAppearance</td>
+                <td>@character.Creator</td>
+                <td style="white-space: nowrap">
+                    <a class="btn btn-primary btn-sm" asp-controller="Characters" asp-action="Edit" asp-route-id="@character.Id">Edit</a>
+                    <a class="btn btn-danger btn-sm" asp-controller="Characters" asp-action="Delete" asp-route-id="@character.Id" onclick="return confirm(`Are you sure?`)">Delete</a>
+                </td>
+            </tr>
+        }
+        
+    </tbody>
+</table>
