@@ -55,6 +55,22 @@ body {
 .table-img-css{
     width:100px;
 }
+
+
+    .home-links-css,
+    .home-links-css:visited,
+    .home-links-css:hover,
+    .home-links-css:active {
+        color: white;
+        text-decoration: none;
+    }
+
+.home-links-css:hover,
+.home-links-css:active {
+     color: lightgrey;
+     text-decoration: none;
+
+}
 /*.createbtn-css {
     color: white;
     text-decoration: none;
@@ -119,11 +135,12 @@ table {
 .card {
     position: relative;
     overflow: hidden;
-/*    border: 2px solid #0077ff;
+    cursor: pointer;
+    /*    border: 2px solid #0077ff;
     border-radius: 12px;
     width: 300px;
     transition: color 0.4s ease;
-    cursor: pointer;
+    
     color: #000;*/
 }
 

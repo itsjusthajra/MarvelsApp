@@ -5,8 +5,8 @@
 
 @model MarvelsApp.Models.ViewModel
 
-
-<div class="h3 mt-4">Heroes</div>
+<div class="mt-4"><a class="home-links-css" href="#heroes">Heroes</a> <span style="color:#e1e5eb">|</span> <a class="home-links-css" href="#villains">Villains</a></div>
+<div class="h3 mt-4" id="heroes">Heroes</div>
 <div class="row row-cols-1 row-cols-md-4 g-4 ">
     
     @foreach(var character in Model.Heroes)
@@ -25,7 +25,7 @@
     }
    </div>
 
-<div class="h3 mt-4">Villains</div>
+<div class="h3 mt-4" id="villains">Villains</div>
 <div class="row row-cols-1 row-cols-md-4 g-4 ">
 
     @foreach (var character in Model.Villains)
