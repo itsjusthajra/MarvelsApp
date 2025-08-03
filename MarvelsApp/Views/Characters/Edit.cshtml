@@ -6,13 +6,13 @@
 @model CharacterDto
 
 @{
-    ViewData["Title"] = "Add Character";
+    ViewData["Title"] = "Edit";
 }
 
 
-<div class="row">
-    <div class="col-md-8 mx-auto rounded border p-3">
-        <h2 class="text-center mb-5">Add Character</h2>
+<div class="row mt-2">
+    <div class="col-md-8 mx-auto rounded border p-3 bg-black border-black mt-2">
+        <h2 class="text-center mb-5">Edit Info</h2>
         <form class="form-control" method="post" enctype="multipart/form-data" asp-action="Edit">
 
             <div class="row mb-3">
@@ -121,15 +121,15 @@
 
             <div class="row">
                 <div class="offset-sm-4 col-sm-4 d-grid">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn submitbtn-css">Submit</button>
                 </div>
                 <div class="col-sm-4 d-grid">
-                    <a class="btn btn-outline-primary" asp-controller="Characters" asp-action="Index" role="button">
+                    <a class="btn cancel-btn-css" asp-controller="Characters" asp-action="Index" role="button">
                         Cancel
                     </a>
                 </div>
             </div>
 
         </form>
-        </<div>
+        </div>
         </div>
