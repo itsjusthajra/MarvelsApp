@@ -1,0 +1,62 @@
+﻿@model MarvelsApp.Models.Character
+
+@{
+    Layout = "_LayoutHome";
+    ViewData["Title"] = Model.Name;
+}
+
+<div class="container my-5">
+    <div class="detail-box-css shadow-lg border-0">
+        <div class="row g-0">
+        <!--  Character Image  -->
+            <div class="detail-img-box col-md-4 d-flex justify-content-center align-items-center bg-dark p-3">
+                <img src="/images/@Model.ImageUrl"
+                     alt="@Model.Name"
+                     class="rounded shadow character-img">
+            </div>
+
+            <!-- Character Info -->
+            <div class="col-md-8">
+                <div class="card-body p-4">
+                    <h1 class="card-title display-5 fw-bold">@Model.Name</h1>
+                    <h4 class="text-muted">@Model.RealName</h4>
+                    <p class="mt-3">@Model.Description</p>
+
+                    <hr />
+
+                    <div class="row mb-3">
+                        <div class="col-sm-6">
+                            <strong>Alias:</strong> @Model.Alias
+                        </div>
+                        <div class="col-sm-6">
+                            <strong>Gender:</strong> @Model.Gender
+                        </div>
+                        <div class="col-sm-6">
+                            <strong>Species:</strong> @Model.Species
+                        </div>
+                        <div class="col-sm-6">
+                            <strong>Origin:</strong> @Model.Origin
+                        </div>
+                        <div class="col-sm-6">
+                            <strong>Category:</strong> @Model.Category
+                        </div>
+                        <div class="col-sm-6">
+                            <strong>First Appearance:</strong> @Model.FirstAppearance
+                        </div>
+                        <div class="col-sm-6">
+                            <strong>Creator:</strong> @Model.Creator
+                        </div>
+                    </div>
+
+                    <a asp-action="Index" class="btn cancel-btn-css me-2 mb-1">
+                        <i class="bi bi-arrow-left"></i> Back to List
+                    </a>
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn submitbtn-css">
+                        <i class="bi bi-pencil"></i> Edit Character
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

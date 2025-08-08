@@ -26,14 +26,16 @@
                 <div class="horizontal-scroll-section" id="scroll-@team.TeamName.Replace(" ", "").ToLower()">
                     @foreach (var item in team.Characters)
                     {
-                        <div class="card team-card-css mx-1">
-                            <img src="/images/@item.ImageUrl" class="card-img-top card-img-css" alt="@item.Name">
-                            <div class="card-body">
-                                <h5 class="card-title">@item.Name</h5>
-                                <h6 class="card-subtitle mb-2 text-body-secondary">@item.RealName</h6>
-                                <p class="card-text">@item.Description</p>
+                        <a asp-controller="Characters" asp-action="Details" asp-route-id="@item.Id" style="text-decoration: none; color: inherit;">
+                            <div class="card h-100 team-card-css mx-1">
+                                <img src="/images/@item.ImageUrl" class="card-img-top card-img-css" alt="@item.Name">
+                                <div class="card-body">
+                                    <h5 class="card-title">@item.Name</h5>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">@item.RealName</h6>
+                                    <p class="card-text">@item.Description</p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     }
                 </div>
                 <button class="scroll-btn scroll-btn-right" data-scroll-target="#scroll-@team.TeamName.Replace(" ", "").ToLower()" data-direction="right">
@@ -65,4 +67,3 @@
         });
     });
 </script>
-

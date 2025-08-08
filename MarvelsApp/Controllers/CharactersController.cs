@@ -174,5 +174,16 @@ namespace MarvelsApp.Controllers
             ViewBag.SearchQuery = query;
             return View(results);
         }
+
+        public IActionResult Details(int id)
+        {
+            var character = _context.Characters.FirstOrDefault(c => c.Id == id);
+            if (character == null)
+            {
+                return NotFound();
+            }
+
+            return View(character);
+        }
     }
 }

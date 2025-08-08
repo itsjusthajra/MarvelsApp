@@ -45,6 +45,7 @@
                 <td style="white-space: nowrap">
                     <a class="btn btn-primary edit-btn btn-sm" asp-controller="Characters" asp-action="Edit" asp-route-id="@character.Id">Edit</a>
                     <a class="btn btn-danger delete-btn btn-sm" asp-controller="Characters" asp-action="Delete" asp-route-id="@character.Id" onclick="return confirm(`Are you sure?`)">Delete</a>
+                    <a class="btn btn-primary edit-btn btn-sm" asp-controller="Characters" asp-action="Details" asp-route-id="@character.Id">Details</a>
                 </td>
             </tr>
         }

@@ -280,3 +280,26 @@ table {
 .horizontal-scroll-section::-webkit-scrollbar {
     display: none; /* Chrome, Safari, WebKit */
 }
+
+.detail-box-css{
+    color:black;
+    background-color:white;
+    
+}
+
+.character-img {
+    max-height: 500px;
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-body strong {
+    color: #d32f2f;
+}
+
+.detail-img-box{
+    background-color:black !important;
+    
+}
