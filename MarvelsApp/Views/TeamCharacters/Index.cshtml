@@ -1,0 +1,68 @@
+﻿@model MarvelsApp.Models.TeamsPageViewModel
+
+@{
+    Layout = "_LayoutHome";
+    ViewData["Title"] = "Teams";
+}
+
+<h1>Teams</h1>
+
+<p>
+    <a class="btn add-btn" asp-action="Create">Add New <i class="bi bi-plus-lg"></i></a>
+    <a class="btn add-btn" asp-action="List">go to List</a>
+</p>
+
+<div class="mt-4">
+    @foreach (var team in Model.Teams)
+    {
+        if (team.Characters != null && team.Characters.Any())
+        {
+            <h3 class="mt-4 team-text-css" id="@team.TeamName.Replace(" ", "").ToLower()">@team.TeamName</h3>
+
+            <div class="container-fluid position-relative">
+                <button class="scroll-btn scroll-btn-left" data-scroll-target="#scroll-@team.TeamName.Replace(" ", "").ToLower()" data-direction="left">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <div class="horizontal-scroll-section" id="scroll-@team.TeamName.Replace(" ", "").ToLower()">
+                    @foreach (var item in team.Characters)
+                    {
+                        <div class="card team-card-css mx-1">
+                            <img src="/images/@item.ImageUrl" class="card-img-top card-img-css" alt="@item.Name">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Name</h5>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">@item.RealName</h6>
+                                <p class="card-text">@item.Description</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <button class="scroll-btn scroll-btn-right" data-scroll-target="#scroll-@team.TeamName.Replace(" ", "").ToLower()" data-direction="right">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="mt-2">
+                <a href="#top" class="home-links-css">Back to top <i class="bi bi-arrow-up-circle"></i></a>
+            </div>
+        }
+    }
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.querySelectorAll('.scroll-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const targetId = button.getAttribute('data-scroll-target');
+            const direction = button.getAttribute('data-direction');
+            const scrollContainer = document.querySelector(targetId);
+            const scrollAmount = 300; // Adjust scroll distance as needed
+
+            if (direction === 'left') {
+                scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+

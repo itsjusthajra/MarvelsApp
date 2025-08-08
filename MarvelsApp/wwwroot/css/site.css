@@ -208,3 +208,75 @@ table {
     background-color: grey;
     border:grey;
 }
+
+.team-text-css{
+    color:white;
+}
+
+.team-img-css{
+    height:50px !important;
+    width:auto;
+}
+
+.horizontal-scroll-section {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 1rem;
+}
+
+    .horizontal-scroll-section::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .horizontal-scroll-section::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
+
+    .horizontal-scroll-section::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+    }
+
+        .horizontal-scroll-section::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+.team-card-css {
+    flex: 0 0 auto;
+    width: 250px; /* Adjust width as needed */
+}
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+    .scroll-btn:hover {
+        background-color: grey;
+        border-color: grey;
+    }
+
+.scroll-btn-left {
+    left: 10px;
+}
+
+.scroll-btn-right {
+    right: 10px;
+}
+
+.horizontal-scroll-section::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, WebKit */
+}

@@ -59,6 +59,7 @@ namespace MarvelsApp.Controllers
                 FirstAppearance = characterDto.FirstAppearance,
                 ImageUrl = newFileName,
                 Creator = characterDto.Creator,
+                Description = characterDto.Description
             };
 
             _context.Characters.Add(character);
@@ -91,7 +92,7 @@ namespace MarvelsApp.Controllers
 
             ViewData["characterId"] = character.Id;
             ViewData["ImageUrl"] = character.ImageUrl;
-
+            
             return View(characterDto);
         }
 

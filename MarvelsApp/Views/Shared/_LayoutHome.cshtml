@@ -33,7 +33,7 @@
                         <a class="nav-link @(currentController == "Characters" && currentAction == "Index" ? "active" : "")" asp-controller="Characters" asp-action="Index">Characters</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Teams" asp-action="Index">Teams</a>
+                        <a class="nav-link @(currentController == "TeamCharacters" && currentAction == "Index" ? "active" : "")" asp-controller="TeamCharacters" asp-action="Index">Teams</a>
                     </li>
 
 

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MarvelsApp.Models.TeamCharacter>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Teams and Characters</h1>
+
+<p>
+    <a asp-action="Create" class="btn add-btn">Add New <i class="bi bi-plus-lg"></i></a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Team.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Character.Name)
+            </th>
+            <th><span style="visibility:hidden">Image</span></th>
+            <th><span style="visibility:hidden">Action</span></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Team.Name</td>
+                <td>@item.Character.Name</td>
+                <td><img class="img-thumbnail team-img-css" src="~/images/@item.Character.ImageUrl"  alt="@item.Character.Name" /></td>
+                <td>
+                    <a class="btn btn-primary edit-btn btn-sm"
+                       asp-controller="TeamCharacters"
+                       asp-action="Edit"
+                       asp-route-teamId="@item.TeamId"
+                       asp-route-characterId="@item.CharacterId">
+                        Edit
+                    </a>
+                    <a class="btn btn-danger delete-btn btn-sm "
+                       asp-controller="TeamCharacters"
+                       asp-action="Delete"
+                       asp-route-teamId="@item.TeamId"
+                       asp-route-characterId="@item.CharacterId"
+                       onclick="return confirm('Are you sure?')">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

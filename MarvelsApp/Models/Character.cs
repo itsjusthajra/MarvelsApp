@@ -20,14 +20,11 @@ namespace MarvelsApp.Models
         public string Gender { get; set; } = "";
         public string Species { get; set; } = "";
         public string Origin { get; set; } = "";
-
-        // Category relationship (one-to-many: one character has one category)
-
         public String Category { get; set; } = "";
         public string FirstAppearance { get; set; } = "";
 
         public string Creator { get; set; } = "";
-        public string Description { get; set; } = "";
+        public string? Description { get; set; } = "";
 
         [Display(Name = "Image URL")]
         public string ImageUrl { get; set; } = "";
