@@ -198,7 +198,10 @@ table {
     background-color: black;
     border:black;
 }
-
+.detail-btn {
+    background-color: gray;
+    border: gray;
+}
 .delete-btn:hover {
     background-color: darkred;
     border: darkred;
@@ -209,6 +212,11 @@ table {
     border:grey;
 }
 
+.detail-btn:hover {
+    color:black;
+    background-color: lightgray;
+    
+}
 .team-text-css{
     color:white;
 }
