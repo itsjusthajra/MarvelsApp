@@ -1,6 +1,8 @@
 ﻿using MarvelsApp.Models;
 using MarvelsApp.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace MarvelsApp.Controllers
 {
@@ -16,12 +18,17 @@ namespace MarvelsApp.Controllers
         }
         public IActionResult Index()
         {
-            var characters = _context.Characters.OrderByDescending(c =>c.Id).ToList();
+            var characters = _context.Characters
+        .Include(c => c.Category) // Eager load category
+        .OrderByDescending(c => c.Id)
+        .ToList();
+
             return View(characters);
         }
 
         public IActionResult Add()
         {
+            ViewBag.Categories = new SelectList(_context.Categories, "Id", "Name");
             return View();
         }
 
@@ -53,7 +60,7 @@ namespace MarvelsApp.Controllers
                 RealName = characterDto.RealName,
                 Alias = characterDto.Alias,
                 Gender = characterDto.Gender,
-                Category = characterDto.Category,
+                CategoryId = characterDto.CategoryId,
                 Species = characterDto.Species,
                 Origin = characterDto.Origin,
                 FirstAppearance = characterDto.FirstAppearance,
@@ -82,7 +89,7 @@ namespace MarvelsApp.Controllers
                 RealName = character.RealName,
                 Alias = character.Alias,
                 Gender = character.Gender,
-                Category = character.Category,
+                CategoryId= character.CategoryId,
                 Species = character.Species,
                 Origin = character.Origin,
                 FirstAppearance = character.FirstAppearance,
@@ -92,7 +99,8 @@ namespace MarvelsApp.Controllers
 
             ViewData["characterId"] = character.Id;
             ViewData["ImageUrl"] = character.ImageUrl;
-            
+
+            ViewBag.Categories = new SelectList(_context.Categories, "Id", "Name");
             return View(characterDto);
         }
 
@@ -133,7 +141,7 @@ namespace MarvelsApp.Controllers
             character.RealName = characterDto.RealName;
             character.Alias = characterDto.Alias;
             character.Gender = characterDto.Gender;
-            character.Category = characterDto.Category;
+            character.CategoryId = characterDto.CategoryId;
             character.Species = characterDto.Species;
             character.Origin = characterDto.Origin;
             character.FirstAppearance = characterDto.FirstAppearance;
@@ -177,7 +185,10 @@ namespace MarvelsApp.Controllers
 
         public IActionResult Details(int id)
         {
-            var character = _context.Characters.FirstOrDefault(c => c.Id == id);
+            var character = _context.Characters
+                .Include(c => c.Category)
+                .FirstOrDefault(c => c.Id == id);
+            
             if (character == null)
             {
                 return NotFound();

@@ -14,6 +14,8 @@ namespace MarvelsApp.Services
         public DbSet<Character> Characters { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<TeamCharacter> TeamCharacters { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TeamCharacter>()

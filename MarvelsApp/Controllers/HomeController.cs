@@ -19,17 +19,27 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        var heroList = _context.Characters.
-            Where(c => c.Category == "Hero").
-            ToList();
-        var villainList = _context.Characters.
-            Where(c => c.Category == "Villain").
-            ToList();
+        var heroList = _context.Characters
+    .Where(c => c.Category.Name == "Hero")
+    .ToList();
 
+        var antiheroList = _context.Characters
+            .Where(c => c.Category.Name == "Anti-Hero")
+            .ToList();
+
+        var villainList = _context.Characters
+            .Where(c => c.Category.Name == "Villain")
+            .ToList();
+
+        var superVillainList = _context.Characters
+            .Where(c => c.Category.Name == "Super-Villain")
+            .ToList();
         var viewModel = new ViewModel
         {
             Heroes = heroList,
-            Villains = villainList
+            AntiHeroes = antiheroList,
+            Villains = villainList,
+            SuperVillains = superVillainList
         };
 
         return View(viewModel);
